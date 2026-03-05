@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function PricingSection() {
   return (
     <section className="w-full bg-white py-20 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-center">
+     <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
 
         {/* ── Sol: Başlık ── */}
         <div className="flex flex-col gap-6 md:w-56 flex-shrink-0">
