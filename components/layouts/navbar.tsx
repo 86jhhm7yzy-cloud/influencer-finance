@@ -3,10 +3,19 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X, Globe } from "lucide-react";
+import { Menu, X } from "lucide-react";
+
+function scrollToSection(e: React.MouseEvent, href: string) {
+  if (href.startsWith("/#")) {
+    e.preventDefault();
+    const id = href.replace("/#", "");
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+  }
+}
 
 const NAV_LINKS = [
-  { label: "ANA SAYFA", href: "/" },
+  { label: "ANA SAYFA", href: "/#hero" },
   { label: "SIKÇA SORULANLAR", href: "/#faq" },
   { label: "ÜCRETLENDİRME", href: "/#pricing" },
 ];
@@ -32,7 +41,6 @@ export default function Navbar() {
 
         {/* ── Desktop Nav ── */}
         <nav className="hidden md:flex items-center">
-          {/* Pill container */}
           <div
             className="flex items-center gap-1 rounded-full px-2 py-2"
             style={{ border: "1.5px solid #9994FF" }}
@@ -41,6 +49,7 @@ export default function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
+                onClick={(e) => scrollToSection(e, link.href)}
                 className="px-5 py-2 rounded-full text-xs font-semibold tracking-widest transition-colors duration-200"
                 style={{ color: "#9994FF" }}
                 onMouseEnter={(e) => {
@@ -58,18 +67,15 @@ export default function Navbar() {
 
         {/* ── Right Side ── */}
         <div className="hidden md:flex items-center gap-4">
-          {/* Giriş Yap button */}
           <Link
-            href="/login"
+            href="https://panel.influencer.finance/auth/login"
             className="px-7 py-3 rounded-full text-sm font-bold text-white transition-opacity duration-200 hover:opacity-90"
             style={{ background: "#FF3047" }}
           >
             GİRİŞ YAP
           </Link>
-
-          {/* Language */}
           <button
-            className="flex items-center gap-1 text-sm font-semibold transition-colors duration-200"
+            className="flex items-center gap-1 text-sm font-semibold"
             style={{ color: "#12101F" }}
           >
             TR
@@ -98,13 +104,16 @@ export default function Navbar() {
               href={link.href}
               className="py-2 text-sm font-semibold tracking-widest"
               style={{ color: "#9994FF" }}
-              onClick={() => setMenuOpen(false)}
+              onClick={(e) => {
+                scrollToSection(e, link.href);
+                setMenuOpen(false);
+              }}
             >
               {link.label}
             </Link>
           ))}
           <Link
-            href="/login"
+            href="https://panel.influencer.finance/auth/login"
             className="mt-2 px-7 py-3 rounded-full text-sm font-bold text-white text-center"
             style={{ background: "#FF3047" }}
             onClick={() => setMenuOpen(false)}

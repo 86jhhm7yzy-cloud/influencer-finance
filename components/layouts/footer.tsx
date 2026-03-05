@@ -16,7 +16,7 @@ export default function Footer() {
           Bize sadece merhaba demek için ya da talep öneri ve soruların için ulaşabilirsin.
         </p>
         <Link
-          href="mailto:hello@influencer.finance"
+          href="mailto:info@influencer.finance"
           className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-medium text-base transition-all duration-200 hover:scale-105"
           style={{ background: "white", color: "#FB1D36" }}
         >

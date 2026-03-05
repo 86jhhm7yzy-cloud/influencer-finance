@@ -8,12 +8,12 @@ import PricingSection from "@/components/sections/PricingSection";
 export default function HomePage() {
   return (
     <div>
-      <HeroSection />
-      <CardsSection />
-      <CountriesSection />
-      <ReferencesSection />
-      <FaqSection />
-      <PricingSection />
+      <div id="hero"><HeroSection /></div>
+      <div id="cards"><CardsSection /></div>
+      <div id="countries"><CountriesSection /></div>
+      <div id="references"><ReferencesSection /></div>
+      <div id="faq" style={{ scrollMarginTop: "80px" }}><FaqSection /></div>
+      <div id="pricing" style={{ scrollMarginTop: "80px" }}><PricingSection /></div>
     </div>
   );
 }

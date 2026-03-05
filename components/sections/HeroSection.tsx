@@ -128,7 +128,7 @@ export default function HeroSection() {
 
           {/* CTA Butonu */}
           <Link
-            href="/register"
+            href="https://panel.influencer.finance/auth/register"
             className="flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-sm tracking-widest transition-opacity duration-200 hover:opacity-90"
             style={{ background: "#FF3047" }}
           >
