@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 
 const countries = [
   { name: "TÜRKİYE",    image: "/map-turkiye.png"    },
@@ -19,7 +18,7 @@ export default function CountriesSection() {
       className="w-full py-16 px-6"
       style={{ background: "#FFEFF1" }}
     >
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 md:gap-0">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-0">
 
         {/* ── Sol: Başlık ── */}
         <div className="flex flex-col gap-6 md:w-64 flex-shrink-0">
@@ -30,12 +29,11 @@ export default function CountriesSection() {
             Influencer<br />Finance Nerede?
           </h2>
           <div
-  className="cursor-pointer"
+  className="cursor-pointer hidden md:block"
   style={{
-    color: "#FF3047",
+    color: "#3D3A8C",
     fontSize: 28,
     fontWeight: 700,
-    display: "inline-block",
     width: "fit-content",
     transformOrigin: "center center",
     transition: "transform 0.25s ease",
@@ -58,9 +56,8 @@ export default function CountriesSection() {
                 onMouseEnter={() => setHovered(i)}
                 onMouseLeave={() => setHovered(null)}
               >
-                {/* Harita ikonu */}
                 <div
-                  className="relative transition-all duration-300"
+                  className="relative"
                   style={{
                     width: 80,
                     height: 80,
@@ -76,8 +73,6 @@ export default function CountriesSection() {
                     className="object-contain"
                   />
                 </div>
-
-                {/* Ülke adı */}
                 <p
                   className="text-xs font-bold tracking-widest transition-colors duration-300"
                   style={{ color: isHovered ? "#FF3047" : "#9994FF" }}

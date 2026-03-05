@@ -26,7 +26,7 @@ export default function Footer() {
       </div>
 
       {/* ── Alt: Logo + Copyright + Sosyal ── */}
-      <div className="max-w-7xl mx-auto flex items-center justify-between gap-6">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center">
 
         {/* Logo */}
         <Link href="/">

@@ -16,21 +16,20 @@ export default function PricingSection() {
             Ücretlendirme
           </h2>
           <div
-            className="cursor-pointer"
-            style={{
-              color: "#3D3A8C",
-              fontSize: 28,
-              fontWeight: 700,
-              display: "inline-block",
-              width: "fit-content",
-              transformOrigin: "center center",
-              transition: "transform 0.25s ease",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            →
-          </div>
+  className="cursor-pointer hidden md:block"
+  style={{
+    color: "#3D3A8C",
+    fontSize: 28,
+    fontWeight: 700,
+    width: "fit-content",
+    transformOrigin: "center center",
+    transition: "transform 0.25s ease",
+  }}
+  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
+  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+>
+  →
+</div>
         </div>
 
         {/* ── Sağ: Kart ── */}
