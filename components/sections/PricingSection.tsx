@@ -67,8 +67,8 @@ export default function PricingSection() {
             <div className="flex flex-col gap-6">
 
               <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı </h3>
-                <p className="text-sm" style={{ color: "#6B6880" }}>Net tutarını anında öğren.</p>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
+                <p className="text-sm" style={{ color: "#6B6880" }}>Kaydırarak net tutarını anında gör.</p>
               </div>
 
               {/* Tutar slider */}
@@ -85,6 +85,7 @@ export default function PricingSection() {
                   onChange={(e) => setTutar(Number(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
                   style={{ accentColor: "#9994FF" }} />
+                <div className="w-full h-0.5 rounded-full" style={{ background: "#3D3A8C" }} />
                 <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
                   <span>10.000 TL</span><span>1.000.000 TL</span>
                 </div>
@@ -104,6 +105,7 @@ export default function PricingSection() {
                   onChange={(e) => setVade(Number(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
                   style={{ accentColor: "#9994FF" }} />
+                <div className="w-full h-0.5 rounded-full" style={{ background: "#3D3A8C" }} />
                 <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
                   <span>1 gün</span><span>120 gün</span>
                 </div>
