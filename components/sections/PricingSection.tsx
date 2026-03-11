@@ -45,7 +45,7 @@ export default function PricingSection() {
               <div className="relative flex-shrink-0 flex items-end justify-center"
                 style={{ width: "100%", maxWidth: 340, height: 280 }}>
                 <Image
-                  src="/Influencer Finance_Arayuz 1.png"
+                  src="/Influencer-Finance-Arayuz.png"
                   alt="Influencer Finance Arayüz"
                   fill
                   className="object-contain object-bottom"
