@@ -1,111 +1,142 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 
 export default function PricingSection() {
+  const [tutar, setTutar] = useState(100000);
+  const [vade, setVade] = useState(30);
+
+  const komisyonOrani = 0.065;
+  const gunlukOran = komisyonOrani / 365;
+  const kesinti = Math.round(tutar * gunlukOran * vade);
+  const netTutar = tutar - kesinti;
+
   return (
     <section className="w-full bg-white py-20 px-6">
-     <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
 
-        {/* ── Sol: Başlık ── */}
+        {/* Sol: Başlık */}
         <div className="flex flex-col gap-6 md:w-56 flex-shrink-0">
-          <h2
-            className="text-4xl font-black leading-tight"
-            style={{ color: "#3D3A8C" }}
-          >
+          <h2 className="text-4xl font-black leading-tight" style={{ color: "#3D3A8C" }}>
             Ücretlendirme
           </h2>
           <div
-  className="cursor-pointer hidden md:block"
-  style={{
-    color: "#3D3A8C",
-    fontSize: 28,
-    fontWeight: 700,
-    width: "fit-content",
-    transformOrigin: "center center",
-    transition: "transform 0.25s ease",
-  }}
-  onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
-  onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
->
-  →
-</div>
-        </div>
-
-        {/* ── Sağ: Kart ── */}
-        <div
-          className="flex-1 rounded-3xl p-8 relative overflow-hidden"
-          style={{
-            background: "#FDFDFD",
-            border: "1px solid #E7EBFF",
-            boxShadow: "0 26px 40px 0 rgba(188,202,255,0.13)",
-          }}
-        >
-          {/* Arka dekor — hafif mor blob */}
-          <div
-            className="absolute top-0 right-0 pointer-events-none"
-            style={{
-              width: 320,
-              height: 200,
-              background: "radial-gradient(ellipse at top right, rgba(153,148,255,0.18) 0%, transparent 70%)",
-              borderRadius: "0 1.5rem 0 100%",
-            }}
-          />
-
-          <div className="relative z-10">
-            {/* Üst satır: başlık + badge */}
-            <div className="flex items-start justify-between gap-4 mb-4">
-              <h3
-                className="text-3xl font-black"
-                style={{ color: "#12101F" }}
-              >
-                Hemen Ödeme Al
-              </h3>
-              <span
-                className="flex-shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full"
-                style={{
-                  border: "1px solid #3D3A8C",
-                  color: "#3D3A8C",
-                  background: "transparent",
-                }}
-              >
-                En iyi teklif
-              </span>
-            </div>
-
-            {/* Açıklama */}
-            <p
-              className="text-base mb-8"
-              style={{ color: "#6B6880", maxWidth: 340 }}
-            >
-              Linkle ödeme ile cazip oranla ödemeni hemen al.
-            </p>
-
-            {/* Alt satır: oran + buton */}
-            <div className="flex items-center justify-between gap-6">
-              <p
-                className="text-5xl font-black"
-                style={{ color: "#12101F" }}
-              >
-                %6.5
-              </p>
-              <Link
-                href="https://panel.influencer.finance/auth/register"
-                className="px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:scale-105"
-                style={{ background: "#9994FF" }}
-              >
-                Hemen Başvur
-              </Link>
-            </div>
-
-            {/* Alt çizgi */}
-            <div
-              className="mt-8 rounded-full"
-              style={{ height: 1, background: "#E7EBFF" }}
-            />
+            className="cursor-pointer hidden md:block"
+            style={{ color: "#3D3A8C", fontSize: 28, fontWeight: 700, width: "fit-content", transformOrigin: "center center", transition: "transform 0.25s ease" }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            →
           </div>
         </div>
 
+        {/* Sağ: Kartlar */}
+        <div className="flex-1 flex flex-col gap-6">
+
+          {/* Sabit kart */}
+          <div className="rounded-3xl p-8 relative overflow-hidden"
+            style={{ background: "#FDFDFD", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.13)" }}>
+            <div className="absolute top-0 right-0 pointer-events-none"
+              style={{ width: 320, height: 200, background: "radial-gradient(ellipse at top right, rgba(153,148,255,0.18) 0%, transparent 70%)", borderRadius: "0 1.5rem 0 100%" }} />
+            <div className="relative z-10">
+              <div className="flex items-start justify-between gap-4 mb-4">
+                <h3 className="text-3xl font-black" style={{ color: "#12101F" }}>Hemen Ödeme Al</h3>
+                <span className="flex-shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full" style={{ border: "1px solid #3D3A8C", color: "#3D3A8C" }}>
+                  En iyi teklif
+                </span>
+              </div>
+              <p className="text-base mb-8" style={{ color: "#6B6880", maxWidth: 340 }}>
+                Linkle ödeme ile cazip oranla ödemeni hemen al.
+              </p>
+              <div className="flex items-center justify-between gap-6">
+                <p className="text-5xl font-black" style={{ color: "#12101F" }}>%6.5</p>
+                <Link href="https://panel.influencer.finance/auth/register"
+                  className="px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:scale-105"
+                  style={{ background: "#9994FF" }}>
+                  Hemen Başvur
+                </Link>
+              </div>
+              <div className="mt-8 rounded-full" style={{ height: 1, background: "#E7EBFF" }} />
+            </div>
+          </div>
+
+          {/* Hesap makinesi kartı */}
+          <div className="rounded-3xl p-8"
+            style={{ background: "#F3F2FF", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.10)" }}>
+            <div className="flex flex-col gap-6">
+
+              <div>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
+                <p className="text-sm" style={{ color: "#6B6880" }}>Kaydırarak net tutarını anında gör.</p>
+              </div>
+
+              {/* Tutar slider */}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
+                    <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
+                  </div>
+                  <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
+                    İşlem tutarı — <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
+                  </span>
+                </div>
+                <input type="range" min={10000} max={1000000} step={10000} value={tutar}
+                  onChange={(e) => setTutar(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer"
+                  style={{ accentColor: "#9994FF" }} />
+                <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
+                  <span>10.000 TL</span><span>1.000.000 TL</span>
+                </div>
+              </div>
+
+              {/* Vade slider */}
+              <div className="flex flex-col gap-2">
+                <div className="flex items-center gap-2">
+                  <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
+                    <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
+                  </div>
+                  <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
+                    <span className="font-black">{vade} gün</span> vade
+                  </span>
+                </div>
+                <input type="range" min={1} max={120} step={1} value={vade}
+                  onChange={(e) => setVade(Number(e.target.value))}
+                  className="w-full h-2 rounded-full appearance-none cursor-pointer"
+                  style={{ accentColor: "#9994FF" }} />
+                <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
+                  <span>1 gün</span><span>120 gün</span>
+                </div>
+              </div>
+
+              {/* Sonuç */}
+              <div className="flex items-center justify-between gap-4 rounded-2xl p-5"
+                style={{ background: "white", border: "1px solid #E7EBFF" }}>
+                <div>
+                  <p className="text-xs font-medium mb-1" style={{ color: "#A8A5C0" }}>Kesinti</p>
+                  <p className="text-lg font-bold" style={{ color: "#FF3047" }}>
+                    -{kesinti.toLocaleString("tr-TR")} TL
+                  </p>
+                  <p className="text-xs mt-2" style={{ color: "#A8A5C0" }}>
+                    {vade} gün × %{(gunlukOran * 100).toFixed(4)} (günlük)
+                  </p>
+                </div>
+                <div className="text-right">
+                  <p className="text-xs font-medium mb-1" style={{ color: "#A8A5C0" }}>Alacağın tutar</p>
+                  <p className="text-3xl font-black" style={{ color: "#3D3A8C" }}>
+                    {netTutar.toLocaleString("tr-TR")} TL
+                  </p>
+                </div>
+              </div>
+
+              <p className="text-xs text-center" style={{ color: "#A8A5C0" }}>
+                * Bu hesaplama bilgi amaçlıdır. Gerçek tutar başvuru sonrası netleşir.
+              </p>
+
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );
