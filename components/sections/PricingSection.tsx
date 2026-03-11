@@ -81,11 +81,13 @@ export default function PricingSection() {
                     İşlem tutarı — <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
                   </span>
                 </div>
-                <div className="w-full rounded-full" style={{ background: "#3D3A8C", height: "1px" }} />
-                <input type="range" min={10000} max={1000000} step={10000} value={tutar}
-                  onChange={(e) => setTutar(Number(e.target.value))}
-                  className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                  style={{ accentColor: "#9994FF" }} />
+                <div className="relative w-full" style={{ height: 20 }}>
+                  <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
+                  <input type="range" min={10000} max={1000000} step={10000} value={tutar}
+                    onChange={(e) => setTutar(Number(e.target.value))}
+                    className="absolute w-full appearance-none cursor-pointer"
+                    style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
+                </div>
                 <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
                   <span>10.000 TL</span><span>1.000.000 TL</span>
                 </div>
@@ -101,11 +103,13 @@ export default function PricingSection() {
                     <span className="font-black">{vade} gün</span> vade
                   </span>
                 </div>
-                <div className="w-full h-0.5 rounded-full" style={{ background: "#3D3A8C" }} />
-                <input type="range" min={1} max={120} step={1} value={vade}
-                  onChange={(e) => setVade(Number(e.target.value))}
-                  className="w-full h-2 rounded-full appearance-none cursor-pointer"
-                  style={{ accentColor: "#9994FF" }} />
+                <div className="relative w-full" style={{ height: 20 }}>
+                  <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
+                  <input type="range" min={1} max={120} step={1} value={vade}
+                    onChange={(e) => setVade(Number(e.target.value))}
+                    className="absolute w-full appearance-none cursor-pointer"
+                    style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
+                </div>
                 <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
                   <span>1 gün</span><span>120 gün</span>
                 </div>
