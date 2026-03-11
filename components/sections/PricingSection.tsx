@@ -9,7 +9,8 @@ export default function PricingSection() {
 
   const komisyonOrani = 0.065;
   const gunlukOran = komisyonOrani / 365;
-  const kesinti = Math.round(tutar * gunlukOran * vade);
+  const efektifGun = 120 - vade;
+  const kesinti = Math.round(tutar * gunlukOran * (efektifGun + 1));
   const netTutar = tutar - kesinti;
 
   return (
@@ -68,7 +69,7 @@ export default function PricingSection() {
 
               <div>
                 <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
-                <p className="text-sm" style={{ color: "#6B6880" }}>Kaydırarak net tutarını anında gör.</p>
+                <p className="text-sm" style={{ color: "#6B6880" }}>Vade ne kadar kısaysa komisyon o kadar artar.</p>
               </div>
 
               {/* Tutar slider */}
@@ -119,12 +120,12 @@ export default function PricingSection() {
               <div className="flex items-center justify-between gap-4 rounded-2xl p-5"
                 style={{ background: "white", border: "1px solid #E7EBFF" }}>
                 <div>
-                  <p className="text-xs font-medium mb-1" style={{ color: "#A8A5C0" }}>Kesinti</p>
+                  <p className="text-xs font-medium mb-1" style={{ color: "#A8A5C0" }}>Komisyon</p>
                   <p className="text-lg font-bold" style={{ color: "#FF3047" }}>
                     -{kesinti.toLocaleString("tr-TR")} TL
                   </p>
                   <p className="text-xs mt-2" style={{ color: "#A8A5C0" }}>
-                    {vade} gün × %{(gunlukOran * 100).toFixed(4)} (günlük)
+                    {efektifGun + 1} gün erken ödeme × %{(gunlukOran * 100).toFixed(4)} (günlük)
                   </p>
                 </div>
                 <div className="text-right">
