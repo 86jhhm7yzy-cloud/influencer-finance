@@ -67,8 +67,8 @@ export default function PricingSection() {
             <div className="flex flex-col gap-6">
 
               <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
-                <p className="text-sm" style={{ color: "#6B6880" }}>Kaydırarak net tutarını anında gör.</p>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı </h3>
+                <p className="text-sm" style={{ color: "#6B6880" }}>Net tutarını anında öğren.</p>
               </div>
 
               {/* Tutar slider */}
