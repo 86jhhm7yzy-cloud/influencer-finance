@@ -81,7 +81,7 @@ export default function PricingSection() {
                     İşlem tutarı — <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
                   </span>
                 </div>
-                <div className="w-full h-0.5 rounded-full" style={{ background: "#3D3A8C" }} />
+                <div className="w-full rounded-full" style={{ background: "#3D3A8C", height: "1px" }} />
                 <input type="range" min={10000} max={1000000} step={10000} value={tutar}
                   onChange={(e) => setTutar(Number(e.target.value))}
                   className="w-full h-2 rounded-full appearance-none cursor-pointer"
