@@ -32,7 +32,7 @@ export default function PricingSection() {
             →
           </div>
           {/* Telefon görseli */}
-          <div className="relative w-full hidden md:block" style={{ height: 420 }}>
+          <div className="relative w-full hidden md:block" style={{ height: 560 }}>
             <Image
               src="/Influencer-Finance-Arayuz.png"
               alt="Influencer Finance Arayüz"
