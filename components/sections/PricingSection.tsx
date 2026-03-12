@@ -62,7 +62,7 @@ export default function PricingSection() {
                     <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
                   </div>
                   <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
-                    İşlem tutarı — <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
+                    İşlem tutarı - <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
                   </span>
                 </div>
                 <div className="relative w-full" style={{ height: 20 }}>
