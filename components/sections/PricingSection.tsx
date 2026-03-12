@@ -23,15 +23,7 @@ export default function PricingSection() {
           <h2 className="text-4xl font-black leading-tight" style={{ color: "#3D3A8C" }}>
             Ücretlendirme
           </h2>
-          <div
-            className="cursor-pointer hidden md:block"
-            style={{ color: "#3D3A8C", fontSize: 28, fontWeight: 700, width: "fit-content", transformOrigin: "center center", transition: "transform 0.25s ease" }}
-            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
-            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-          >
-            →
-          </div>
-          <div className="relative w-full hidden md:block" style={{ height: 560 }}>
+          <div className="relative w-full hidden md:block" style={{ height: 700 }}>
             <Image
               src="/Influencer-Finance-Arayuz.png"
               alt="Influencer Finance Arayüz"
