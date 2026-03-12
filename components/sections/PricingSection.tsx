@@ -19,16 +19,25 @@ export default function PricingSection() {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
         {/* Sol: Başlık + Görsel */}
-        <div className="flex flex-col gap-6 md:w-72 flex-shrink-0">
+        <div className="flex flex-col gap-4 md:w-80 flex-shrink-0">
           <h2 className="text-4xl font-black leading-tight" style={{ color: "#3D3A8C" }}>
             Ücretlendirme
           </h2>
-          <div className="relative w-full hidden md:block" style={{ height: 700 }}>
+          <div
+            className="cursor-pointer hidden md:block"
+            style={{ color: "#3D3A8C", fontSize: 28, fontWeight: 700, width: "fit-content", transformOrigin: "center center", transition: "transform 0.25s ease" }}
+            onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.4)")}
+            onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
+          >
+            →
+          </div>
+          <div className="hidden md:block w-full">
             <Image
               src="/Influencer-Finance-Arayuz.png"
               alt="Influencer Finance Arayüz"
-              fill
-              className="object-contain object-top"
+              width={400}
+              height={800}
+              className="w-full h-auto"
             />
           </div>
         </div>
