@@ -81,7 +81,7 @@ export default function PricingSection() {
             <div className="flex flex-col gap-6">
 
               <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı ile Vade Beklemeden Alabileceğin Hakedişini Hesapla</h3>
                 <p className="text-sm" style={{ color: "#6B6880" }}>Vade ne kadar kısaysa komisyon o kadar artar.</p>
               </div>
 
