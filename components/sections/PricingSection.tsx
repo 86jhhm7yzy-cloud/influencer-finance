@@ -33,7 +33,7 @@ export default function PricingSection() {
           </div>
           <div className="relative w-full hidden md:block" style={{ height: 560 }}>
             <Image
-              src="/Influencer Finance_Arayuz 1.png"
+              src="/Influencer-Finance-Arayuz.png"
               alt="Influencer Finance Arayüz"
               fill
               className="object-contain object-top"
