@@ -16,10 +16,10 @@ export default function PricingSection() {
 
   return (
     <section className="w-full bg-white py-20 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-16 md:gap-24 items-start">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-        {/* Sol: Başlık */}
-        <div className="flex flex-col gap-6 md:w-56 flex-shrink-0">
+        {/* Sol: Başlık + Görsel */}
+        <div className="flex flex-col gap-6 md:w-72 flex-shrink-0">
           <h2 className="text-4xl font-black leading-tight" style={{ color: "#3D3A8C" }}>
             Ücretlendirme
           </h2>
@@ -31,57 +31,25 @@ export default function PricingSection() {
           >
             →
           </div>
+          {/* Telefon görseli */}
+          <div className="relative w-full hidden md:block" style={{ height: 420 }}>
+            <Image
+              src="/Influencer Finance_Arayuz 1.png"
+              alt="Influencer Finance Arayüz"
+              fill
+              className="object-contain object-top"
+            />
+          </div>
         </div>
 
-        {/* Sağ: Kartlar */}
-        <div className="flex-1 flex flex-col gap-6">
-
-          {/* Hemen Ödeme Al kartı — yeni tasarım */}
-          <div className="rounded-3xl overflow-hidden relative"
-            style={{ background: "#F3F2FF", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.13)", minHeight: 280 }}>
-            <div className="flex flex-col md:flex-row items-center h-full">
-
-              {/* Sol: Telefon görseli */}
-              <div className="relative flex-shrink-0 flex items-end justify-center"
-                style={{ width: "100%", maxWidth: 340, height: 280 }}>
-                <Image
-                  src="/Influencer-Finance-Arayuz.png"
-                  alt="Influencer Finance Arayüz"
-                  fill
-                  className="object-contain object-bottom"
-                />
-              </div>
-
-              {/* Sağ: İçerik */}
-              <div className="flex flex-col gap-5 p-8 flex-1">
-                <div>
-                  <h3 className="text-4xl font-black leading-tight mb-4" style={{ color: "#12101F" }}>
-                    Ödemen<br />Hemen Hesabında!
-                  </h3>
-                  <p className="text-base leading-relaxed" style={{ color: "#6B6880" }}>
-                    Ödemeni avantajlı oranlarla hemen tahsil et. Avantajlı oranlarla ödemenı almak için sen de Influencer Finance kullanmaya hemen başla.
-                  </p>
-                </div>
-                <div className="w-full rounded-full" style={{ height: 1, background: "#D0CEFF" }} />
-                <Link
-                  href="https://panel.influencer.finance/auth/register"
-                  className="w-full py-4 rounded-2xl text-white font-semibold text-base text-center transition-all duration-200 hover:opacity-90"
-                  style={{ background: "#9994FF" }}
-                >
-                  Hemen Başvur
-                </Link>
-              </div>
-
-            </div>
-          </div>
-
-          {/* Hesap makinesi kartı */}
+        {/* Sağ: Hesap makinesi kartı */}
+        <div className="flex-1">
           <div className="rounded-3xl p-8"
             style={{ background: "#F3F2FF", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.10)" }}>
             <div className="flex flex-col gap-6">
 
               <div>
-                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı ile Vade Beklemeden Alabileceğin Hakedişini Hesapla</h3>
+                <h3 className="text-xl font-black mb-1" style={{ color: "#3D3A8C" }}>Fatura Finansmanı Hesapla</h3>
                 <p className="text-sm" style={{ color: "#6B6880" }}>Vade ne kadar kısaysa komisyon o kadar artar.</p>
               </div>
 
@@ -155,8 +123,8 @@ export default function PricingSection() {
 
             </div>
           </div>
-
         </div>
+
       </div>
     </section>
   );
