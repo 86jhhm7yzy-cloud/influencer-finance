@@ -119,9 +119,17 @@ export default function PricingSection() {
                 </div>
               </div>
 
-              <p className="text-xs text-center" style={{ color: "#A8A5C0" }}>
-                * Bu hesaplama bilgi amaçlıdır. Gerçek tutar başvuru sonrası netleşir.
-              </p>
+              <div className="flex flex-col gap-1 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.6)", border: "1px solid #E7EBFF" }}>
+                <p className="text-xs" style={{ color: "#A8A5C0" }}>
+                  * Bu hesaplama yalnızca bilgi amaçlıdır; bağlayıcı bir teklif niteliği taşımaz.
+                </p>
+                <p className="text-xs" style={{ color: "#A8A5C0" }}>
+                  * Fatura finansmanı hizmeti, 6361 sayılı Finansal Kiralama, Faktoring, Finansman ve Tasarruf Finansman Şirketleri Kanunu kapsamında faaliyet gösteren yetkili bir finansman kuruluşu aracılığıyla sunulmaktadır.
+                </p>
+                <p className="text-xs" style={{ color: "#A8A5C0" }}>
+                  * Fiili komisyon oranı ve ödeme koşulları, başvuru değerlendirmesi sonucunda yetkili kuruluş tarafından belirlenir. Influencer Finance, finansal aracılık hizmeti sağlamakta olup doğrudan kredi veya finansman teklifinde bulunmamaktadır.
+                </p>
+              </div>
 
             </div>
           </div>
