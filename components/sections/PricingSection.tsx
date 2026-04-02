@@ -18,8 +18,8 @@ export default function PricingSection() {
     <section className="w-full bg-white py-20 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-12 md:gap-16 items-start">
 
-        {/* Sol: Başlık + Görsel */}
-        <div className="flex flex-col gap-4 md:w-80 flex-shrink-0">
+        {/* Sol: Başlık + Ok + Görsel */}
+        <div className="flex flex-col gap-6 md:w-80 flex-shrink-0">
           <h2 className="text-4xl font-black leading-tight" style={{ color: "#3D3A8C" }}>
             Ücretlendirme
           </h2>
@@ -31,13 +31,13 @@ export default function PricingSection() {
           >
             →
           </div>
-          <div className="hidden md:block w-full">
+          <div className="hidden md:block relative" style={{ width: "100%", height: 700 }}>
             <Image
               src="/Influencer-Finance-Arayuz.png"
               alt="Influencer Finance Arayüz"
-              width={400}
-              height={800}
-              className="w-full h-auto"
+              fill
+              sizes="320px"
+              className="object-contain object-top"
             />
           </div>
         </div>
@@ -45,7 +45,30 @@ export default function PricingSection() {
         {/* Sağ: Kartlar */}
         <div className="flex-1 flex flex-col gap-6">
 
-          {/* Hesap makinesi kartı */}
+          {/* Ödemen Hemen Hesabında kartı */}
+          <div className="rounded-3xl p-8 relative overflow-hidden"
+            style={{ background: "#E8E7FF", border: "1px solid #D0CEFF" }}>
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+              <div className="flex-1">
+                <h3 className="text-2xl font-black mb-2" style={{ color: "#12101F" }}>
+                  Ödemen Hemen Hesabında!
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "#3D3A8C" }}>
+                  %6.5'dan başlayan avantajlı oranlarla hemen tahsil et.<br />
+                  <span className="font-bold">Avantajlı oranlarla ödemenı almak için sen de Influencer Finance kullanmaya hemen başla.</span>
+                </p>
+              </div>
+              <Link
+                href="https://panel.influencer.finance/auth/register"
+                className="flex-shrink-0 px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 hover:opacity-90 text-center"
+                style={{ background: "#9994FF" }}
+              >
+                Hemen Başvur
+              </Link>
+            </div>
+          </div>
+
+          {/* Fatura Finansmanı Hesapla kartı */}
           <div className="rounded-3xl p-8"
             style={{ background: "#F3F2FF", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.10)" }}>
             <div className="flex flex-col gap-6">
@@ -55,48 +78,53 @@ export default function PricingSection() {
                 <p className="text-sm" style={{ color: "#6B6880" }}>Vade ne kadar kısaysa komisyon o kadar artar.</p>
               </div>
 
-              {/* Tutar slider */}
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
-                    <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
-                  </div>
-                  <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
-                    İşlem tutarı - <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
-                  </span>
-                </div>
-                <div className="relative w-full" style={{ height: 20 }}>
-                  <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
-                  <input type="range" min={10000} max={1000000} step={10000} value={tutar}
-                    onChange={(e) => setTutar(Number(e.target.value))}
-                    className="absolute w-full appearance-none cursor-pointer"
-                    style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
-                </div>
-                <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
-                  <span>10.000 TL</span><span>1.000.000 TL</span>
-                </div>
-              </div>
+              {/* Slider'lar yan yana */}
+              <div className="flex flex-col md:flex-row gap-8">
 
-              {/* Vade slider */}
-              <div className="flex flex-col gap-2">
-                <div className="flex items-center gap-2">
-                  <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
-                    <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
+                {/* Tutar slider */}
+                <div className="flex flex-col gap-2 flex-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
+                    </div>
+                    <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
+                      İşlem tutarı: <span className="font-black">{tutar.toLocaleString("tr-TR")} TL</span>
+                    </span>
                   </div>
-                  <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
-                    <span className="font-black">{vade} gün</span> vade
-                  </span>
+                  <div className="relative w-full" style={{ height: 20 }}>
+                    <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
+                    <input type="range" min={10000} max={1000000} step={10000} value={tutar}
+                      onChange={(e) => setTutar(Number(e.target.value))}
+                      className="absolute w-full appearance-none cursor-pointer"
+                      style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
+                  </div>
+                  <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
+                    <span>10.000 TL</span><span>1.000.000 TL</span>
+                  </div>
                 </div>
-                <div className="relative w-full" style={{ height: 20 }}>
-                  <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
-                  <input type="range" min={1} max={120} step={1} value={vade}
-                    onChange={(e) => setVade(Number(e.target.value))}
-                    className="absolute w-full appearance-none cursor-pointer"
-                    style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
+
+                {/* Vade slider */}
+                <div className="flex flex-col gap-2 flex-1">
+                  <div className="flex items-center gap-2">
+                    <div className="w-5 h-5 rounded-full border-2 flex items-center justify-center" style={{ borderColor: "#9994FF" }}>
+                      <div className="w-2 h-2 rounded-full" style={{ background: "#9994FF" }} />
+                    </div>
+                    <span className="text-sm font-semibold" style={{ color: "#3D3A8C" }}>
+                      <span className="font-black">{vade} gün</span> vade
+                    </span>
+                  </div>
+                  <div className="relative w-full" style={{ height: 20 }}>
+                    <div className="absolute w-full rounded-full" style={{ background: "#3D3A8C", height: "1px", top: "50%", transform: "translateY(-50%)" }} />
+                    <input type="range" min={1} max={120} step={1} value={vade}
+                      onChange={(e) => setVade(Number(e.target.value))}
+                      className="absolute w-full appearance-none cursor-pointer"
+                      style={{ accentColor: "#9994FF", background: "transparent", top: "50%", transform: "translateY(-50%)" }} />
+                  </div>
+                  <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
+                    <span>1 gün</span><span>120 gün</span>
+                  </div>
                 </div>
-                <div className="flex justify-between text-xs" style={{ color: "#A8A5C0" }}>
-                  <span>1 gün</span><span>120 gün</span>
-                </div>
+
               </div>
 
               {/* Sonuç */}
@@ -119,6 +147,7 @@ export default function PricingSection() {
                 </div>
               </div>
 
+              {/* Yasal notlar */}
               <div className="flex flex-col gap-1 rounded-2xl p-4" style={{ background: "rgba(255,255,255,0.6)", border: "1px solid #E7EBFF" }}>
                 <p className="text-xs" style={{ color: "#A8A5C0" }}>
                   * Bu hesaplama yalnızca bilgi amaçlıdır; bağlayıcı bir teklif niteliği taşımaz.
@@ -131,34 +160,6 @@ export default function PricingSection() {
                 </p>
               </div>
 
-            </div>
-          </div>
-
-          {/* Hemen Ödeme Al kartı */}
-          <div className="rounded-3xl p-8 relative overflow-hidden"
-            style={{ background: "#FDFDFD", border: "1px solid #E7EBFF", boxShadow: "0 26px 40px 0 rgba(188,202,255,0.13)" }}>
-            <div className="absolute top-0 right-0 pointer-events-none"
-              style={{ width: 320, height: 200, background: "radial-gradient(ellipse at top right, rgba(153,148,255,0.18) 0%, transparent 70%)", borderRadius: "0 1.5rem 0 100%" }} />
-            <div className="relative z-10">
-              <div className="flex items-start justify-between gap-4 mb-4">
-                <h3 className="text-3xl font-black" style={{ color: "#12101F" }}>Hemen Ödeme Al</h3>
-                <span className="flex-shrink-0 text-xs font-semibold px-3 py-1.5 rounded-full"
-                  style={{ border: "1px solid #3D3A8C", color: "#3D3A8C" }}>
-                  En iyi teklif
-                </span>
-              </div>
-              <p className="text-base mb-8" style={{ color: "#6B6880", maxWidth: 340 }}>
-                Linkle ödeme ile cazip oranla ödemeni hemen al.
-              </p>
-              <div className="flex items-center justify-between gap-6">
-                <p className="text-5xl font-black" style={{ color: "#12101F" }}>%6.5</p>
-                <Link href="https://panel.influencer.finance/auth/register"
-                  className="px-8 py-4 rounded-2xl text-white font-semibold text-base transition-all duration-200 hover:opacity-90 hover:scale-105"
-                  style={{ background: "#9994FF" }}>
-                  Hemen Başvur
-                </Link>
-              </div>
-              <div className="mt-8 rounded-full" style={{ height: 1, background: "#E7EBFF" }} />
             </div>
           </div>
 
