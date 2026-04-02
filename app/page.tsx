@@ -5,6 +5,7 @@ import ReferencesSection from "@/components/sections/ReferencesSection";
 import FaqSection from "@/components/sections/FaqSection";
 import PricingSection from "@/components/sections/PricingSection";
 import WhySection from "@/components/sections/WhySection";
+import CtaSection from "@/components/sections/CtaSection";
 
 export default function HomePage() {
   return (
@@ -14,6 +15,7 @@ export default function HomePage() {
       <div id="countries"><CountriesSection /></div>
       <div id="countries"><CountriesSection /></div>
       <div id="why"><WhySection /></div>
+      <div id="cta"><CtaSection /></div>
       <div id="references"><ReferencesSection /></div>
       <div id="faq" style={{ scrollMarginTop: "80px" }}><FaqSection /></div>
       <div id="pricing" style={{ scrollMarginTop: "80px" }}><PricingSection /></div>
